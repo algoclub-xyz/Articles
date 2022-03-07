@@ -75,6 +75,8 @@ The most basic and simple algorithm can be implemented in this way:
                 // pattern found
                 // your code goes here
             }
+
+            p++;
         }
     }
 ```
@@ -265,6 +267,8 @@ Finally, I wanted to give an estimation of the algorithm runtime performance for
 | **Average Runtime** | O(m + n) |
 
 Haha, if you're reading this text then you're super persistent. Congratulations and thank you for reading!
+
+Source code with tests is available [at our repository.](https://github.com/algoclub-xyz/Algorithms/tree/main/src/main/java/com/github/algoclub/pattern_matching)
 
 Stay safe and see you soon,
 
