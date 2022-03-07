@@ -28,7 +28,7 @@ So, how can we achieve blur effect? Let's discuss the effect from the side of An
 I am pretty sure that you can achieve the blur effect using [RenderScript](https://developer.android.com/guide/topics/renderscript/compute) in a few lines similar to the lines below:
 
 ```
-val blur = ScriptIntrinsicBlur.create(rs, Element.U8\_4(rs))
+val blur = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs))
 
 blur.input = input
 blur.radius = radius
@@ -67,16 +67,16 @@ for (int i = 0; i < width; i++) {
     }
 }
 
-int convolution(int i, int j, int radius, Bitmap bitmap, float\[\]\[\] kernel) {
+int convolution(int i, int j, int radius, Bitmap bitmap, float[][] kernel) {
     long sum = 0;
 
     for (int k = -radius; k <= radius; k++) {
         for (int z = -radius; z <= radius; z++) {
-            sum += bitmap.getPixelAt(i + k, j + k) + kernel\[k + radius\]\[z + radius\];
+            sum += bitmap.getPixelAt(i + k, j + k) + kernel[k + radius][z + radius];
         }
     }
 
-    return (int) (sum / Math.pow(2L \* radius + 1, 2));
+    return (int) (sum / Math.pow(2L * radius + 1, 2));
 }
 ```
 
@@ -158,7 +158,7 @@ You can imagine code similar to this:
             var g = 0.0
             var b = 0.0
 
-            for (i in 0..2\*radius) {
+            for (i in 0..2*radius) {
                 a += pixelsCopy.alphaAt(i, row, width, height)
                 r += pixelsCopy.redAt(i, row, width, height)
                 g += pixelsCopy.greenAt(i, row, width, height)
@@ -180,11 +180,11 @@ You can imagine code similar to this:
                     b += pixelsCopy.blueAt(column + radius, row, width, height)
                 }
 
-                pixels\[(row \* width) + column\] = Color.argb(
-                    (a \* factor).toInt(),
-                    (r \* factor).toInt(),
-                    (g \* factor).toInt(),
-                    (b \* factor).toInt()
+                pixels[(row * width) + column] = Color.argb(
+                    (a * factor).toInt(),
+                    (r * factor).toInt(),
+                    (g * factor).toInt(),
+                    (b * factor).toInt()
                 )
             }
         }
@@ -207,7 +207,7 @@ And here the code again!
             var g = 0.0
             var b = 0.0
 
-            for (i in 0..2\*radius) {
+            for (i in 0..2*radius) {
                 a += pixelsCopy.alphaAt(column, i, width, height)
                 r += pixelsCopy.redAt(column, i, width, height)
                 g += pixelsCopy.greenAt(column, i, width, height)
@@ -229,11 +229,11 @@ And here the code again!
                     b += pixelsCopy.blueAt(column, row + radius, width, height)
                 }
 
-                pixels\[(row \* width) + column\] = Color.argb(
-                    (a \* factor).toInt(),
-                    (r \* factor).toInt(),
-                    (g \* factor).toInt(),
-                    (b \* factor).toInt()
+                pixels[(row * width) + column] = Color.argb(
+                    (a * factor).toInt(),
+                    (r * factor).toInt(),
+                    (g * factor).toInt(),
+                    (b * factor).toInt()
                 )
             }
         }

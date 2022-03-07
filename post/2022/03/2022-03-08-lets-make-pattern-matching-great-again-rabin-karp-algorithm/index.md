@@ -216,14 +216,14 @@ You can see the implementation below:
         int h = 1;
         
         for (int i = 0; i < pattern.length(); i++) {
-            patternHashCode = (patternHashCode \* D + pattern.charAt(i)) % Q;
-            if (i > 0) h = (h \* D) % Q;
+            patternHashCode = (patternHashCode * D + pattern.charAt(i)) % Q;
+            if (i > 0) h = (h * D) % Q;
         }
         
         long originHashCode = 0;
         
         for (int i = 0; i < Math.min(origin.length(), pattern.length()); i++) {
-            originHashCode = (originHashCode \* D + origin.charAt(i)) % Q;
+            originHashCode = (originHashCode * D + origin.charAt(i)) % Q;
         }
     
         
@@ -232,7 +232,7 @@ You can see the implementation below:
         }
         
         for (int i = pattern.length(); i < origin.length(); i++) {
-            originHashCode = (((originHashCode - origin.charAt(i - pattern.length()) \* h) \* D + origin.charAt(i)) % Q + Q) % Q;
+            originHashCode = (((originHashCode - origin.charAt(i - pattern.length()) * h) * D + origin.charAt(i)) % Q + Q) % Q;
             
             if (originHashCode == patternHashCode && equals(origin, i - pattern.length() + 1, pattern)) {
                 return i - pattern.length() + 1;

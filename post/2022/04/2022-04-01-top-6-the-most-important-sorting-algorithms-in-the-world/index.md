@@ -35,13 +35,13 @@ import random
 def bogosort(a):
     array = a
     
-    while not is\_sorted(array):
+    while not is_sorted(array):
         array = random.shuffle(a)
     return array
 
-def is\_sorted(a):
+def is_sorted(a):
     for i in range(0, len(a) - 1):
-        if a\[i + 1\] <= a\[i\]:
+        if a[i + 1] <= a[i]:
             return False
     return True
 ```
@@ -75,19 +75,19 @@ import random
 def bozosort(a):
     array = a
     
-    while not is\_sorted(array):
+    while not is_sorted(array):
         l = random.uniform(0, len(array))
         r = random.uniform(0, len(array))
 
-        t = array\[l\]
-        array\[r\] = array\[l\]
-        array\[l\] = t
+        t = array[l]
+        array[r] = array[l]
+        array[l] = t
 
     return array
 
-def is\_sorted(a):
+def is_sorted(a):
     for i in range(0, len(a) - 1):
-        if a\[i + 1\] <= a\[i\]:
+        if a[i + 1] <= a[i]:
             return False
     return True
 ```
@@ -105,17 +105,17 @@ The complexity estimations are pretty much similar to **_BogoSort_**.
 Sleep sort is also a quite classic algorithm of sorting. The idea is pretty simple we need to go through the array elements. For every element we need to start a new thread and block them for the same amount of time as the element's value.
 
 ```
-import \_thread
+import _thread
 from time import sleep
 
 def tick(i):
     sleep(i)
     print(i)
 
-def sleep\_sort(a):
+def sleep_sort(a):
     for i in a:
-        arg\_tuple = (i,)
-        \_thread.start\_new\_thread(tick, arg\_tuple)
+        arg_tuple = (i,)
+        _thread.start_new_thread(tick, arg_tuple)
 ```
 
 The algorithm works exact the same amount of time as the maximum element of the array.
@@ -142,8 +142,8 @@ def gnomesort(a):
     while index < len(a):
         if index == 0:
             index += 1
-        elif a\[index\] < a\[index - 1\]:
-            (a\[index\], a\[index - 1\]) = (a\[index - 1\], a\[index\])
+        elif a[index] < a[index - 1]:
+            (a[index], a[index - 1]) = (a[index - 1], a[index])
             index -= 1
         else:
             index += 1
@@ -168,13 +168,13 @@ This is a pretty fast algorithm it requires only linear amount of iterations. We
 
 ```
 def stalinsort(a):
-    sorted = \[\]
+    sorted = []
 
-    sorted.append(a\[0\])
+    sorted.append(a[0])
 
     for i in range(1, len(a)):
-        if a\[i\] >= sorted\[len(sorted) - 1\]:
-            sorted.append(a\[i\])
+        if a[i] >= sorted[len(sorted) - 1]:
+            sorted.append(a[i])
 
     return sorted
 ```
