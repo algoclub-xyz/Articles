@@ -15,7 +15,7 @@ Hello folks 👋
 
 Another week has come and passed. It means that it is time for another article, yay!
 
-Do you remember the article about [Fenwick tree](https://algoclub.xyz/wp-admin/post.php?post=21&action=edit)? If don't then, please, revisit it before starting with this one.
+Do you remember the article about [Fenwick tree](https://algoclub.xyz/2022/01/19/a-fish-called-fenwick-tree/)? If don't then, please, revisit it before starting with this one.
 
 During that article I mentioned an interesting data structure called Segment Tree. Unfortunately, I did not share any details about it.
 
@@ -131,7 +131,7 @@ Finally, let's estimate the complexity:
 | **finding sum** | O(lg n) |
 | **updating value by index** | O(lg n) |
 
-Hooray! That is it folks. Traditionally, you can find the full implementation with t[ests at our repository](https://github.com/algoclub-xyz/Algorithms/blob/main/src/main/java/com/github/algoclub/trees/SegmentTree.java).
+Hooray! That is it folks. Traditionally, you can find the full implementation with [tests at our repository](https://github.com/algoclub-xyz/Algorithms/blob/main/src/main/java/com/github/algoclub/trees/SegmentTree.java).
 
 Good luck and see you soon!
 
